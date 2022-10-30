@@ -26,17 +26,66 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: ListView(
         children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const Text(
-                'You have pushed the button this many times:',
-              ),
-              Text(
-                '$_counter',
-                style: Theme.of(context).textTheme.headline4,
-              ),
-            ],
+          Text(
+            'TextTheme',
+            style: Theme.of(context).textTheme.headlineLarge,
+          ),
+          Text(
+            'displayLarge',
+            style: Theme.of(context).textTheme.displayLarge,
+          ),
+          Text(
+            'displayMedium',
+            style: Theme.of(context).textTheme.displayMedium,
+          ),
+          Text(
+            'displaySmall',
+            style: Theme.of(context).textTheme.displaySmall,
+          ),
+          Text(
+            'headlineLarge',
+            style: Theme.of(context).textTheme.headlineLarge,
+          ),
+          Text(
+            'headlineMedium',
+            style: Theme.of(context).textTheme.headlineMedium,
+          ),
+          Text(
+            'headlineSmall',
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
+          Text(
+            'titleLarge',
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
+          Text(
+            'titleMedium',
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+          Text(
+            'titleSmall',
+            style: Theme.of(context).textTheme.titleSmall,
+          ),
+          Text(
+            'bodyLarge',
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
+          Text(
+            'bodyMedium',
+            style: Theme.of(context).textTheme.bodyMedium,
+          ),
+          Text(
+            'bodySmall',
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+          Container(
+            height: 2,
+            margin: const EdgeInsets.all(8),
+            color: Colors.grey,
+          ),
+          Text(
+            'Buttons',
+            style: Theme.of(context).textTheme.headlineLarge,
           ),
           OutlinedButton(onPressed: () {}, child: Text('OutlinedButton')),
           ElevatedButton(onPressed: () {}, child: Text('ElevatedButton')),
@@ -48,11 +97,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

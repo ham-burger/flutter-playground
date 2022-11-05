@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_component_scrap/pages/buttons_page.dart';
+import 'package:ui_component_scrap/pages/flexible_list_page.dart';
 import 'package:ui_component_scrap/pages/texts_page.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -33,6 +34,14 @@ class _MyHomePageState extends State<MyHomePage> {
             onTap: () => Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => const ButtonsPage(),
+              ),
+            ),
+          ),
+          ListTile(
+            title: Text('flexible list'),
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const FlexibleListPage(),
               ),
             ),
           ),

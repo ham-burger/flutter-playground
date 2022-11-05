@@ -95,7 +95,6 @@ class _FlexibleListPageState extends State<FlexibleListPage> {
                 _line('発注会社', '株式会社Hachuuu'),
                 _line('発注種', '工務'),
                 _line('発注方法', 'オンライン'),
-                _line('発注金額', '400000円'),
               ],
             ),
         ],

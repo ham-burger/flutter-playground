@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ui_component_scrap/buttons_page.dart';
-import 'package:ui_component_scrap/texts_page.dart';
+import 'package:ui_component_scrap/pages/buttons_page.dart';
+import 'package:ui_component_scrap/pages/texts_page.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});

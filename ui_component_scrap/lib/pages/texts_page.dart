@@ -59,6 +59,18 @@ class TextsPage extends StatelessWidget {
             'bodySmall',
             style: Theme.of(context).textTheme.bodySmall,
           ),
+          Text(
+            'labelLarge',
+            style: Theme.of(context).textTheme.labelLarge,
+          ),
+          Text(
+            'labelMedium',
+            style: Theme.of(context).textTheme.labelMedium,
+          ),
+          Text(
+            'labelSmall',
+            style: Theme.of(context).textTheme.labelSmall,
+          ),
         ],
       ),
     );

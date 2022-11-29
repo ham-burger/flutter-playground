@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ui_component_scrap/pages/buttons_page.dart';
 import 'package:ui_component_scrap/pages/texts_page.dart';
+import 'package:ui_component_scrap/pages/toogles_page.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -60,6 +61,14 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
+          ListTile(
+            title: Text('toggles'),
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const TogglesPage(),
+              ),
+            ),
+          )
         ],
       ),
     );

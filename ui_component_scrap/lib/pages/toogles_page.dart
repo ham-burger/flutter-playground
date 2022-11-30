@@ -10,6 +10,7 @@ class TogglesPage extends StatefulWidget {
 class _TogglesPageState extends State<TogglesPage> {
   bool? _state1 = false;
   bool? _state2 = false;
+  int? _state3 = null;
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +20,10 @@ class _TogglesPageState extends State<TogglesPage> {
       ),
       body: ListView(
         children: [
+          Text(
+            'checkbox',
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
           Checkbox(
             value: _state1,
             onChanged: (newState) {
@@ -61,6 +66,58 @@ class _TogglesPageState extends State<TogglesPage> {
             enabled: false,
             title: const Text('enabled'),
             subtitle: const Text('false'),
+          ),
+          Text(
+            'radio',
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
+          Radio(
+            value: 1,
+            groupValue: _state3,
+            onChanged: (newState) {
+              setState(
+                () {
+                  _state3 = newState;
+                },
+              );
+            },
+          ),
+          Radio(
+            value: 2,
+            groupValue: _state3,
+            onChanged: (newState) {
+              setState(
+                () {
+                  _state3 = newState;
+                },
+              );
+            },
+            toggleable: false,
+          ),
+          RadioListTile(
+            value: 3,
+            groupValue: _state3,
+            onChanged: (newState) {
+              setState(
+                () {
+                  _state3 = newState;
+                },
+              );
+            },
+            title: Text('value 3'),
+          ),
+          RadioListTile(
+            value: 4,
+            groupValue: _state3,
+            onChanged: (newState) {
+              setState(
+                () {
+                  _state3 = newState;
+                },
+              );
+            },
+            title: Text('value 4'),
+            subtitle: Text('subtitle'),
           ),
         ],
       ),

@@ -82,18 +82,6 @@ class _TogglesPageState extends State<TogglesPage> {
               );
             },
           ),
-          Radio(
-            value: 2,
-            groupValue: _state3,
-            onChanged: (newState) {
-              setState(
-                () {
-                  _state3 = newState;
-                },
-              );
-            },
-            toggleable: false,
-          ),
           RadioListTile(
             value: 3,
             groupValue: _state3,
@@ -104,7 +92,7 @@ class _TogglesPageState extends State<TogglesPage> {
                 },
               );
             },
-            title: Text('value 3'),
+            title: Text('list tile'),
           ),
           RadioListTile(
             value: 4,
@@ -116,8 +104,9 @@ class _TogglesPageState extends State<TogglesPage> {
                 },
               );
             },
-            title: Text('value 4'),
-            subtitle: Text('subtitle'),
+            title: Text('lite tile 2'),
+            subtitle: Text('toggleable'),
+            toggleable: true,
           ),
         ],
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_component_scrap/pages/buttons_page.dart';
+import 'package:ui_component_scrap/pages/form_page.dart';
 import 'package:ui_component_scrap/pages/texts_page.dart';
 import 'package:ui_component_scrap/pages/toogles_page.dart';
 
@@ -66,6 +67,14 @@ class _MyHomePageState extends State<MyHomePage> {
             onTap: () => Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => const TogglesPage(),
+              ),
+            ),
+          ),
+          ListTile(
+            title: Text('forms'),
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const FormPage(),
               ),
             ),
           )

@@ -11,6 +11,7 @@ class _TogglesPageState extends State<TogglesPage> {
   bool? _state1 = false;
   bool? _state2 = false;
   int? _state3 = null;
+  bool _state4 = false;
 
   @override
   Widget build(BuildContext context) {
@@ -107,6 +108,20 @@ class _TogglesPageState extends State<TogglesPage> {
             title: Text('lite tile 2'),
             subtitle: Text('toggleable'),
             toggleable: true,
+          ),
+          Text(
+            'switch',
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
+          Switch(
+            value: _state4,
+            onChanged: (value) {
+              setState(
+                () {
+                  _state4 = value;
+                },
+              );
+            },
           ),
         ],
       ),

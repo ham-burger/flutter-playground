@@ -13,6 +13,6 @@ jobs:
 
       - name: dart-code-metrics
         uses: dart-code-checker/dart-code-metrics-action@v1
+        working-directory: ./ui_component_scrap
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          folders: ui_component_scrap/lib

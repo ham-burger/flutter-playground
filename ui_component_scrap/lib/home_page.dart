@@ -4,6 +4,7 @@ import 'package:ui_component_scrap/pages/draggable_page.dart';
 import 'package:ui_component_scrap/pages/form_page.dart';
 import 'package:ui_component_scrap/pages/gesture_page.dart';
 import 'package:ui_component_scrap/pages/layout_page.dart';
+import 'package:ui_component_scrap/pages/sliver_page.dart';
 import 'package:ui_component_scrap/pages/texts_page.dart';
 import 'package:ui_component_scrap/pages/toogles_page.dart';
 
@@ -102,6 +103,14 @@ class _MyHomePageState extends State<MyHomePage> {
             onTap: () => Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => const LayoutPage(),
+              ),
+            ),
+          ),
+          ListTile(
+            title: Text('sliver'),
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const SliverPage(),
               ),
             ),
           ),

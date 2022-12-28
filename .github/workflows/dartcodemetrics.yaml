@@ -9,8 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./ui_component_scrap
+        working-directory: ui_component_scrap
     steps:
+      - name: echo
+        run: echo $GITHUB_WORKSPACE
+      - name: pwd
+        run: pwd
       - uses: actions/checkout@v3
       - uses: subosito/flutter-action@v2
         with:

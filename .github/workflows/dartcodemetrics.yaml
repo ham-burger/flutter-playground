@@ -10,9 +10,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-
+      - run: cd ./ui_component_scrap
       - name: dart-code-metrics
+        # working-directory: ./ui_component_scrap
         uses: dart-code-checker/dart-code-metrics-action@v1
-        working-directory: ./ui_component_scrap
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

@@ -5,11 +5,13 @@ on: [push]
 jobs:
   check:
     name: dart-code-metrics-action
-
     runs-on: ubuntu-latest
+
     defaults:
       run:
-        working-directory: ui_component_scrap
+        shell: bash
+        working-directory: ./ui_component_scrap
+
     steps:
       - name: echo
         run: |

@@ -17,10 +17,12 @@ jobs:
         with:
           channel: "stable"
       - name: "Install Tools"
-        run: flutter pub global activate melos ${{ env.melos_version }}
+        run: flutter pub global activate melos
       - name: "Bootstrap Workspace"
         run: melos bootstrap
       - name: dart-code-metrics
         uses: dart-code-checker/dart-code-metrics-action@v2.0.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          relative_path: "packages/ui_component_scrap"
+          folder: "lib"

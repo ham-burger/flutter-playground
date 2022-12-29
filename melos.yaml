@@ -1,0 +1,8 @@
+name: projects
+packages:
+  - packages/**
+
+scripts:
+  postclean: rm packages/mypackage/lib/src/generated_file.g.dart
+  analyze:
+    exec: dart analyze .

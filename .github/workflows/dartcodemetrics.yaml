@@ -6,16 +6,15 @@ jobs:
   check:
     name: dart-code-metrics-action
     runs-on: ubuntu-latest
-
     defaults:
       run:
         shell: bash
-        # working-directory: ui_component_scrap
+        working-directory: ui_component_scrap
 
     steps:
-      - name: echo
-        run: |
-          echo $GITHUB_WORKSPACE
+      # - name: echo
+      #   run: |
+      #     echo $GITHUB_WORKSPACE
       - name: pwd
         run: |
           pwd

@@ -10,7 +10,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./ui_component_scrap
+        working-directory: ui_component_scrap
 
     steps:
       - name: echo

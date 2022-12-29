@@ -13,17 +13,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: echo
-        run: |
-          echo $GITHUB_WORKSPACE
-      - name: pwd
-        run: |
-          pwd
       - uses: subosito/flutter-action@v2
         with:
           channel: "stable"
-      - run: flutter pub get
+      - name: "Install Tools"
+        run: flutter pub global activate melos ${{ env.melos_version }}
+      - name: "Bootstrap Workspace"
+        run: melos bootstrap
       - name: dart-code-metrics
-        uses: dart-code-checker/dart-code-metrics-action@v1
+        uses: dart-code-checker/dart-code-metrics-action@v2.0.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

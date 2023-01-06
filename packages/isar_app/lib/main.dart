@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:isar/isar.dart';
+import 'package:isar_app/item.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,13 +30,19 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+late Isar isar;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  void initState() {
+    super.initState();
+    initializeIsar();
+  }
+
+  Future<void> initializeIsar() async {
+    isar = await Isar.open([
+      ItemSchema,
+    ]);
   }
 
   @override
@@ -43,25 +51,74 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+      body: ListView(children: [
+        ListTile(
+          title: Text("Hello"),
+          subtitle: Text("World"),
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const ButtonAdditionalPage(),
+              ),
+            );
+          },
         ),
+      ]),
+    );
+  }
+}
+
+class ButtonAdditionalPage extends StatefulWidget {
+  const ButtonAdditionalPage({Key? key}) : super(key: key);
+
+  @override
+  State<ButtonAdditionalPage> createState() => _ButtonAdditionalPageState();
+}
+
+class _ButtonAdditionalPageState extends State<ButtonAdditionalPage> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("ButtonAdditionalPage"),
+      ),
+      body: FutureBuilder(
+        builder: (context, snapshot) {
+          final data = snapshot.data;
+          if (data == null || data.isEmpty) {
+            return const Center(child: CircularProgressIndicator());
+          } else {
+            return ListView.builder(
+              itemBuilder: (context, index) {
+                final item = data[index];
+                return ListTile(
+                  title: Text(item.name ?? ""),
+                );
+              },
+              itemCount: data.length,
+            );
+          }
+        },
+        future: () async {
+          return isar.items.where().findAll();
+        }(),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
+        onPressed: () async {
+          final newItem = Item()..name = "name - ${DateTime.now()}";
+          await isar.writeTxn(() async {
+            await isar.items.put(newItem); // insert & update
+          });
+          setState(() {});
+        },
         child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }
